@@ -28,11 +28,10 @@ authenticateToken = (token, req, cb) ->
 exports.easyOauth = (server, params) ->
     tokenValidity = params.tokenValidity || 10
     tokenEndpoint = params.endpoint || '/token'
-    validClients = params.clients
     secretKey = params.secret
     options =
         hooks:
-            grantClientToken: grantClientToken
-            authenticateToken: authenticateToken
+            grantClientToken: params?.grantClientToken
+            authenticateToken: params?.authenticateToken
         tokenEndpoint: tokenEndpoint
     oauth.cc server, options
