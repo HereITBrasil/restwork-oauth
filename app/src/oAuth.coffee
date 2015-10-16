@@ -32,6 +32,7 @@ exports.easyOauth = (server, params) ->
     options =
         hooks:
             grantClientToken: (credentials, req, cb) ->
+                return cb null, false unless params?.grantClientToken
                 params.grantClientToken(credentials, req, cb)
             authenticateToken: (token, req, cb) ->
                 return cb null, false unless params?.authenticateToken
