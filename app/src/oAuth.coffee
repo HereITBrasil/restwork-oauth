@@ -31,7 +31,10 @@ exports.easyOauth = (server, params) ->
     secretKey = params.secret
     options =
         hooks:
-            grantClientToken: params?.grantClientToken
-            authenticateToken: params?.authenticateToken
+            grantClientToken: (credentials, req, cb) ->
+                params.grantClientToken(credentials, req, cb)
+            authenticateToken: (token, req, cb) ->
+                return cb null, false unless params?.authenticateToken
+                params.authenticateToken(credentials, req, cb)
         tokenEndpoint: tokenEndpoint
     oauth.cc server, options
