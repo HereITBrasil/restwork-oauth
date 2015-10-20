@@ -36,6 +36,6 @@ exports.easyOauth = (server, params) ->
                 params.grantClientToken(credentials, req, cb)
             authenticateToken: (token, req, cb) ->
                 return cb null, false unless params?.authenticateToken
-                params.authenticateToken(credentials, req, cb)
+                params.authenticateToken(token, req, cb)
         tokenEndpoint: tokenEndpoint
     oauth.cc server, options
