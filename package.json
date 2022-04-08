@@ -11,8 +11,8 @@
   "dependencies": {
     "coffee-script": "~1.9.3",
     "jsonwebtoken": "^5.0.5",
-    "restify": "~3.0.3",
-    "restify-oauth2": "~4.0.3",
+    "restify": "3.0.3",
+    "restify-oauth2": "4.0.3",
     "underscore": "~1.8.3"
   },
   "devDependencies": {
